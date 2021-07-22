@@ -1,0 +1,41 @@
+
+
+
+ 
+ ./linux-amd64/helm install --name nginx-ingress nginx-ingress --set controller.publishService.enabled=true
+
+
+kubernetes auto scalar
+HPA Horizontal pod autoscaling
+VPA, vertical pod autoscaling
+
+
+
+ ./linux-amd64/helm install --name nginx-ingress nginx-ingress --set controller.publishService.enabled=true
+
+
+metric server
+
+
+annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: vinayakchavan.tk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80
+

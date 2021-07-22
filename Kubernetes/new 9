@@ -1,0 +1,22 @@
+
+
+why do we use kubernetes
+
+Kubernetes is an orchestration tool for containerized applications. Starting with a collection of Docker containers, Kubernetes can control resource allocation 
+
+and traffic management for cloud applications and microservices. As such, it simplifies many aspects of running a service-oriented application infrastructure.
+
+
+
+
+Access key ID
+
+AKIAXUICXPQXSTKYJ6G3 
+
+
+Secret access key
+
+
+IWvyAor7tTC9F7aMyGKUtoOpmkdKigQHoVaGJ/Zo
+
+aws configure chatapp

@@ -1,0 +1,70 @@
+
+
+aws eks --region us-east-2 describe-cluster --name Chatapp --query cluster.status
+
+
+aws eks --region us-east-2 update-kubeconfig --name chatapp-cluster
+
+aws eks --region us-east-1 update-kubeconfig --name demo
+
+
+eksctl create cluster -n chatapp -r us-east-2 --version 1.19 --managed --nodegroup-name chatapp-nodegroup -t t2.small -m1 -M 3 --node-volume-size 20 
+--ssh-access --node-labels poll=small-poll --asg-access --external-dns-access --kubeconfig /home/ubuntu/.kube/config
+
+
+
+eksctl create cluster -n chatapp-cluster -r us-east-2 --zones=us-east-1a,us-east-1b,us-east-1c --version 1.19 --managed --nodegroup-name chatapp-nodegroup -t t2.small -m 1 -M 3 --node-volume-size 8 
+--ssh-access --node-labels poll=small-poll --asg-access --external-dns-access --kubeconfig /home/ubuntu/.kube/config
+
+
+ eksctl create cluster -n chatapp-cluster -r us-east-2 --zones=us-east-2a,us-east-2b,us-east-2c --version 1.19 --managed --nodegroup-name chatapp-nodegroup -t t2.small  -m 1 -M 3 --node-volume-size 8 
+ --ssh-access --node-labels poll=small-poll --asg-access --external-dns-access --kubeconfig /home/ubuntu/.kube/config
+
+
+
+eksctl delete cluster --name chatapp-cluster --region us-west-2
+
+
+GRANT ALL PRIVILEGES ON mydb.* TO 'admin'@'localhost';
+
+SET PASSWORD FOR 'admin'@'localhost' = PASSWORD('ganesh123');
+
+GRANT ALL PRIVILEGES ON *.*  TO 'admin'@'localhost';
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'chatappdb',
+        'USER': 'admin',
+        'PASSWORD':'ganesh123',
+        'HOST': 'mysqldb',
+        'PORT': '3306',
+    }
+
+
+
+192.168.84.
+
+vinayakchavan.tk
+
+
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: vinayakchavan.tk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80
+
+
